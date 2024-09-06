@@ -1,5 +1,6 @@
 from PIL import Image, ImageDraw
 
+
 def textsize(text, font):
     im = Image.new(mode="P", size=(0, 0))
     draw = ImageDraw.Draw(im)
@@ -7,18 +8,16 @@ def textsize(text, font):
     return width, height
 
 
-def generate_image(text, id, font, width=192, height=64, text_y_offset=0):
-  img = Image.new('RGB', (width, height), color='black')
+def generate_image(text, id, font_object, font, width=192, height=64, text_y_offset=0):
+    img = Image.new("RGB", (width, height), color="black")
 
-  imgDraw = ImageDraw.Draw(img)
+    imgDraw = ImageDraw.Draw(img)
 
-  text_width, text_height = textsize(text, font)
+    text_width, text_height = textsize(text, font_object)
 
-  x = (width - text_width) / 2
-  y = (height - text_height) / 2 + text_y_offset
+    x = (width - text_width) / 2
+    y = (height - text_height) / 2 + text_y_offset
 
-  imgDraw.text((x, y), text, font=font, fill='white')
+    imgDraw.text((x, y), text, font=font_object, fill="white")
 
-  img.save(f'../../static/processed/v1/images/{id}.png')
-
-
+    img.save(f"../../static/processed/v1/images/{font}/{id}.png")
