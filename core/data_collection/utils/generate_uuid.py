@@ -1,4 +1,5 @@
 import uuid
+import os
 
 
 def import_used_uuids():
@@ -15,6 +16,11 @@ def write_used_uuid(generated_uuid):
 
 
 def generate_unique_id():
+    uuid_path = "../../static/processed/v1/uuids.txt"
+    if not os.path.exists(uuid_path):
+        with open(uuid_path, "w") as uuid_file:
+            pass
+
     generated_uuid = uuid.uuid4()
     uuids = import_used_uuids()
 
