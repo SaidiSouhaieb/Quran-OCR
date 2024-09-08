@@ -21,7 +21,7 @@ def generate_image(text, id, font_object, font, width=192, height=64, text_y_off
 
     imgDraw.text((x, y), text, font=font_object, fill="white")
 
-    folder_path = f"../../static/processed/v1/images/{font}/"
+    folder_path = f"../../static/processed/v2/images/{font}/"
     if not os.path.exists(folder_path):
         os.mkdir(folder_path)
 
