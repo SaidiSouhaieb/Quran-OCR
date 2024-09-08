@@ -35,8 +35,9 @@ def generate_word_json():
                     }
                     # dump_json_data(verse_data)
                     quran_words_collection.insert_one(verse_data)
-                    print(f"Finished generating and saving for line {line_number}")
                     line_number += 1
+                    if line_number % 1000 == 0:
+                        print(f"Finished generating and saving {line_number} words")
             except Exception as e:
                 print(f"Exceptoin: {e}")
                 pass
