@@ -14,7 +14,7 @@ quran_words = quran_words_collection.find()
 
 
 def generate_images():
-    font_names = ["eljaza", "hijazi", "naskh", "ruqah", "thuluth"]
+    font_names = ["almaghribi", "muhammadi", "uthmanic"]
     number_words_generated = 0
     for font in font_names:
         print(font)
